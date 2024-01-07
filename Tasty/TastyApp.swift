@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct TastyApp: App {
+    @StateObject var order = Order()
+    @StateObject var favorites = Favorites()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environmentObject(order)
+                .environmentObject(favorites)
         }
     }
 }
